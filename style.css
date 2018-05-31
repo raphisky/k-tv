@@ -1,3 +1,22 @@
 body {
+  font-family: Helvetica, Arial;
+  margin: 0;
   text-align: center;
+}
+
+#nav {
+  float: left;
+  height: 100vh;
+  background: black;
+  width: 300px;
+}
+
+#videoPlayer {
+  float: left;
+  margin: auto;
+  height: 100vh;
+}
+
+#loadVideos {
+  color: #FFFFFF;
 }
