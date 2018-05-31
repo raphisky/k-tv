@@ -12,11 +12,19 @@ body {
 }
 
 #videoPlayer {
-  float: left;
   margin: auto;
   height: 100vh;
 }
 
 #loadVideos {
   color: #FFFFFF;
+}
+
+.video_tag {
+  margin: 3px;
+  color: #FFFFFF;
+  display: inline-block;
+  border: 1px solid white;
+  width: auto;
+  height: 20px;
 }

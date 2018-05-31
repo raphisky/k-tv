@@ -17,16 +17,9 @@ $.getJSON("https://spreadsheets.google.com/feeds/list/1Xmzj5w5aOo21CwK-btoEB2OLQ
     videoTitles.push(data.feed.entry[el].gsx$videotitle.$t);
     videoDesc.push(data.feed.entry[el].gsx$videodesc.$t);
   }
-  console.log(videoLinks);
   isDataLoaded = true;
+  createVideoTags();
 });
-
-var loadVideoButton = document.getElementById('loadVideos');
-
-loadVideoButton.onclick = function() {
-  console.log("caca");
-  loadVideo(2);
-};
 
 function loadVideo(v) {
   if (isDataLoaded) {
@@ -34,19 +27,48 @@ function loadVideo(v) {
   }
 };
 
-loadVideo(1);
+function loadVide_os() {
+  for (var i = 0; i < videoLinks.length; i++) {
+    displayVideoTag(i);
+    displayVideoTitle(i);
+    getVideo
+  }
+}
+
+
+function playVideo(i) {
+  console.log(videoLinks[i]);
+  var player = document.getElementById("videoPlayer");
+  player.setAttribute("data-href",videoLinks[i]);
+}
 
 // loadVideoFeed(data_feed);
 
 
-function createVideoTag(v) {
+function createVideoTags() {
+  for (var i = 0; i < videoLinks.length; i++) {
+    var tagContainer = document.getElementById("tags");
+    var newTag = document.createElement("div");
+    var tagText = videoTags[i];
+    var newTagText = document.createTextNode(tagText);
+    newTag.appendChild(newTagText);
+    tagContainer.appendChild(newTag);
+    newTag.setAttribute("class","video_tag");
+    newTag.setAttribute("id","video_"+i);
+  }
+}
+
+
+
+function createVideo(v) {
+  var videoContainer = document.getElementById("videoPlayerContainer");
+  var newVideo = document.createElement("div");
+  videoContainer.appendChild(newVideo);
+  newVideo.setAttribute("class","fb-video");
+  newVideo.setAttribute("data-href",videoLinks[v]);
+  newVideo.setAttribute("data-width","800");
+  newVideo.setAttribute("data-autoplay","true");
 
 }
 
-function createVideoLink(v) {
-
-}
-
-function createVideoDescription(v) {
-
-}
+createVideo(0);
